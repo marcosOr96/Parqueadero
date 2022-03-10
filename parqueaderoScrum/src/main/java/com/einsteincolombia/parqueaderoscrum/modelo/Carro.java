@@ -1,3 +1,5 @@
+package com.einsteincolombia.parqueaderoscrum.modelo;
+
 import javax.xml.crypto.Data;
 import java.time.*;
 
