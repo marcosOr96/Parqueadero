@@ -6,12 +6,12 @@ import java.time.*;
 public class Moto {
     private String placa;
     private String modelo;
-    private  LocalDate fecha;
+    private String fecha;
 
     public Moto() {
     }
 
-    public Moto(String placa, String modelo, LocalDate fecha) {
+    public Moto(String placa, String modelo, String fecha) {
         this.placa = placa;
         this.modelo = modelo;
         this.fecha = fecha;
@@ -33,11 +33,20 @@ public class Moto {
         this.modelo = modelo;
     }
 
-    public LocalDate getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(LocalDate fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
+    }
+
+    @Override
+    public String toString() {
+        return "Moto{" +
+                "placa='" + placa + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", fecha='" + fecha + '\'' +
+                '}';
     }
 }
