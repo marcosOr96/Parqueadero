@@ -2,6 +2,8 @@ package com.einsteincolombia.parqueaderoscrum.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -38,5 +40,13 @@ public class ParqueaderoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         comboBoxTipo.setItems(comboTipoContent);
+    }
+
+    @FXML
+    public void limpiar(ActionEvent event) {
+        textPlaca.setText("");
+        textModelo.setText("");
+        textFecha.setText("");
+        comboBoxTipo.setValue(null);
     }
 }

@@ -81,7 +81,7 @@
             <TextField fx:id="textCantCarros" layoutX="426.0" layoutY="148.0" />
             <ComboBox fx:id="comboBoxTipo" layoutX="150.0" layoutY="201.0" prefWidth="150.0" />
             <Button fx:id="buttonAgregar" layoutX="151.0" layoutY="257.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="72.0" text="Agregar" />
-            <Button fx:id="buttonLimpiar" layoutX="225.0" layoutY="257.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="72.0" text="Limpiar" />
+            <Button fx:id="buttonLimpiar" layoutX="225.0" layoutY="257.0" mnemonicParsing="false" onAction="#limpiar" prefHeight="35.0" prefWidth="72.0" text="Limpiar" />
             <Button fx:id="buttonReiniciar" layoutX="426.0" layoutY="192.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="72.0" text="Reiniciar" />
             <Button fx:id="buttonTotalizar" layoutX="500.0" layoutY="192.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="72.0" text="Totalizar" />
             <Label fx:id="labelResultado" layoutX="354.0" layoutY="292.0" text="\$ xx">
