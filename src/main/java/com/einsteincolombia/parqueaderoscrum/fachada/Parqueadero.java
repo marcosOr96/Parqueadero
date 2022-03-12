@@ -8,62 +8,76 @@ import java.util.Locale;
 
 public class Parqueadero {
 
-    private ArrayList<Object> carros;
-    private ArrayList<Object> motos;
+    private ArrayList<Object> car;
+    private ArrayList<Object> motorbike;
 
     public Parqueadero() {
-        carros = new ArrayList<>();
-        motos = new ArrayList<>();
+        car = new ArrayList<>();
+        motorbike = new ArrayList<>();
     }
 
-    public boolean verificarPlaca (String placa, int tipoVehiculo){
-        boolean placaVerificada=false;
-        if(tipoVehiculo==0){
-            if(placa.length()==5){
-                placaVerificada=true;
+    //metodo para verificar las placas según el tipo de vehiculo y formato de placa ------------------------------------
+    public boolean checkPlate (String plate, int vehicleType){
+        boolean verifiedPlate=false;
+        if(vehicleType==0){
+            if(plate.length()==5 && plate.matches("[A-Za-z]{3}+[0-9]{2}")){
+                verifiedPlate=true;
             }
         }else{
-            if(placa.length()==6){
-                placaVerificada=true;
+            if(plate.length()==6 && plate.matches("[A-Za-z]{3}+[0-9]{3}")){
+                verifiedPlate=true;
             }
         }
-        return placaVerificada;
+        return verifiedPlate;
     }
 
-    public boolean agregarVehiculo(String placa, String modelo, String fecha, int tipoVehiculo){
-        boolean agregado=false;
-        if(tipoVehiculo==0){
-            motos.add(new Moto(placa, modelo, fecha));
-            agregado=true;
+    //metodo para verificar que el modelo de vehiculo este entre los años 1960 y 2023 ----------------------------------
+    public boolean checkModel (int model){
+        boolean verifiedModel=false;
+        if(model>1960 && model<2023){
+            verifiedModel=true;
+        }
+        return verifiedModel;
+    }
+
+    //metodo para agregar vehiculos en array list segun tipo -----------------------------------------------------------
+    public boolean addVehicle(String plate, String model, String date, int vehicleType){
+        boolean aggregate=false;
+        if(vehicleType==0){
+            motorbike.add(new Moto(plate, model, date));
+            aggregate=true;
         }
         else{
-            carros.add(new Carro(placa, modelo, fecha));
-            agregado=true;
+            car.add(new Carro(plate, model, date));
+            aggregate=true;
         }
-        return agregado;
+        return aggregate;
     }
 
-    public ArrayList getCarros() {
-        return carros;
+    //metodo agregar valor por servicio de parqueadero -----------------------------------------------------------------
+
+
+    public ArrayList getCar() {
+        return car;
     }
 
-    public void setCarros(ArrayList carros) {
-        this.carros = carros;
+    public void setCar(ArrayList car) {
+        this.car = car;
     }
 
-    public ArrayList getMotos() {
-        return motos;
+    public ArrayList getMotorbike() {
+        return motorbike;
     }
 
-    public void setMotos(ArrayList motos) {
-        this.motos = motos;
+    public void setMotorbike(ArrayList motorbike) {
+        this.motorbike = motorbike;
     }
 
     @Override
     public String toString() {
         return "Parqueadero{" +
-                "carros=" + carros +
-                ", motos=" + motos +
+                "carros=" + car +
+                ", motos=" + motorbike +
                 '}';
     }
 }

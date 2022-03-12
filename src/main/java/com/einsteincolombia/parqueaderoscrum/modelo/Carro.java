@@ -4,49 +4,50 @@ import javax.xml.crypto.Data;
 import java.time.*;
 
 public class Carro {
-    private String placa;
-    private String modelo;
-    private String fecha;
+    private String plate;
+    private String model;
+    private String date;
+    private long pay;
 
     public Carro() {
     }
 
-    public Carro(String placa, String modelo, String fecha) {
-        this.placa = placa;
-        this.modelo = modelo;
-        this.fecha = fecha;
+    public Carro(String plate, String model, String date) {
+        this.plate = plate;
+        this.model = model;
+        this.date = date;
     }
 
-    public String getPlaca() {
-        return placa;
+    public String getPlate() {
+        return plate;
     }
 
-    public void setPlaca(String placa) {
-        this.placa = placa;
+    public void setPlate(String plate) {
+        this.plate = plate;
     }
 
-    public String getModelo() {
-        return modelo;
+    public String getModel() {
+        return model;
     }
 
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
+    public void setModel(String model) {
+        this.model = model;
     }
 
-    public String getFecha() {
-        return fecha;
+    public String getDate() {
+        return date;
     }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     @Override
     public String toString() {
         return "Carro{" +
-                "placa='" + placa + '\'' +
-                ", modelo='" + modelo + '\'' +
-                ", fecha='" + fecha + '\'' +
+                "placa='" + plate + '\'' +
+                ", modelo='" + model + '\'' +
+                ", fecha='" + date + '\'' +
                 '}';
     }
 }
