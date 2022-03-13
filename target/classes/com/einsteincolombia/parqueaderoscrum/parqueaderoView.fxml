@@ -52,8 +52,8 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="textPlaca" layoutX="151.0" layoutY="40.0" />
-            <TextField fx:id="textModelo" layoutX="151.0" layoutY="92.0" />
+            <TextField fx:id="textPlaca" layoutX="151.0" layoutY="40.0" promptText="ABC123" />
+            <TextField fx:id="textModelo" layoutX="151.0" layoutY="92.0" promptText="1960 a 2023" />
             <TextField fx:id="textFecha" editable="false" layoutX="151.0" layoutY="148.0" />
             <TextField fx:id="textCantMotos" editable="false" layoutX="426.0" layoutY="92.0" />
             <TextField fx:id="textCantCarros" editable="false" layoutX="426.0" layoutY="148.0" />

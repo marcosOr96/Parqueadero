@@ -61,26 +61,52 @@ public class ParqueaderoController implements Initializable {
         }else{
             boolean verifiedPlate = parking.checkPlate(textPlaca.getText(), comboBoxTipo.getSelectionModel().getSelectedIndex());
             boolean verifiedModel = parking.checkModel(Integer.parseInt(textModelo.getText()));
-            if (!verifiedPlate) {
+            if (!verifiedPlate && verifiedModel) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("***** Error *****");
                 alert.setHeaderText(null);
-                alert.setContentText("Verifique la placa");
+                alert.setContentText("Verifique la placa\nFormato Placa Moto: ABC12\nFormato Placa Carro ABC123");
                 alert.showAndWait();
-            } else if (!verifiedModel) {
+            } else if (verifiedPlate && !verifiedModel) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("***** Error *****");
                 alert.setHeaderText(null);
-                alert.setContentText("Verifique el modelo");
+                alert.setContentText("Verifique el modelo\nModelos aceptados entre 1960 y 2023");
                 alert.showAndWait();
-            } else {
-                boolean aggregate = parking.addVehicle(textPlaca.getText(), textModelo.getText(), textFecha.getText(),
-                        comboBoxTipo.getSelectionModel().getSelectedIndex());
+            }else if (!verifiedPlate && !verifiedModel){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("***** Error *****");
+                alert.setHeaderText(null);
+                alert.setContentText("""
+                        Verifique la placa y el modelo
+                        
+                        Verifique la placa
+                        Formato Placa Moto: ABC12
+                        Formato Placa Carro ABC123
+                        
+                        Verifique el modelo
+                        Modelos aceptados entre 1960 y 2023""");
+                alert.showAndWait();
+            }
+            else {
+                boolean aggregate = parking.addVehicle(textPlaca.getText(), Integer.parseInt(textModelo.getText()),
+                        textFecha.getText(), comboBoxTipo.getSelectionModel().getSelectedIndex());
                 if (aggregate) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("***** En Hora Buena *****");
+                    alert.setHeaderText(null);
+                    alert.setContentText("agegado correctamente");
+                    alert.showAndWait();
+                    textCantCarros.setText(String.valueOf(parking.getCar().size()));
+                    textCantMotos.setText(String.valueOf(parking.getMotorbike().size()));
+                    textPlaca.setText("");
+                    textModelo.setText("");
+                    comboBoxTipo.setValue(null);
+                }else{
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("***** Error *****");
                     alert.setHeaderText(null);
-                    alert.setContentText("agegado corrctamente");
+                    alert.setContentText("Vehiculo ya se encuentra en el parqueadero");
                     alert.showAndWait();
                 }
             }

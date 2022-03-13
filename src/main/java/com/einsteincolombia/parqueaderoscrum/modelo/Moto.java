@@ -5,16 +5,18 @@ import java.time.*;
 
 public class Moto {
     private String plate;
-    private String model;
+    private int model;
     private String date;
+    private double price;
 
     public Moto() {
     }
 
-    public Moto(String plate, String model, String date) {
+    public Moto(String plate, int model, String date, double price) {
         this.plate = plate;
         this.model = model;
         this.date = date;
+        this.price=price;
     }
 
     public String getPlate() {
@@ -25,11 +27,11 @@ public class Moto {
         this.plate = plate;
     }
 
-    public String getModel() {
+    public int getModel() {
         return model;
     }
 
-    public void setModel(String model) {
+    public void setModel(int model) {
         this.model = model;
     }
 
