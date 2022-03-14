@@ -12,7 +12,7 @@ public class parqueaderoApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("parqueaderoView.fxml"));
-        primaryStage.setTitle("parqueadero");
+        primaryStage.setTitle("Primera Aplicación");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
