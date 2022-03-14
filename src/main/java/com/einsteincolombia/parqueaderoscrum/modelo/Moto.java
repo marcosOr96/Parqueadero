@@ -4,40 +4,51 @@ import javax.xml.crypto.Data;
 import java.time.*;
 
 public class Moto {
-    private String placa;
-    private String modelo;
-    private  LocalDate fecha;
+    private String plate;
+    private int model;
+    private String date;
+    private double price;
 
     public Moto() {
     }
 
-    public Moto(String placa, String modelo, LocalDate fecha) {
-        this.placa = placa;
-        this.modelo = modelo;
-        this.fecha = fecha;
+    public Moto(String plate, int model, String date, double price) {
+        this.plate = plate;
+        this.model = model;
+        this.date = date;
+        this.price=price;
     }
 
-    public String getPlaca() {
-        return placa;
+    public String getPlate() {
+        return plate;
     }
 
-    public void setPlaca(String placa) {
-        this.placa = placa;
+    public void setPlate(String plate) {
+        this.plate = plate;
     }
 
-    public String getModelo() {
-        return modelo;
+    public int getModel() {
+        return model;
     }
 
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
+    public void setModel(int model) {
+        this.model = model;
     }
 
-    public LocalDate getFecha() {
-        return fecha;
+    public String getDate() {
+        return date;
     }
 
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        return "Moto{" +
+                "placa='" + plate + '\'' +
+                ", modelo='" + model + '\'' +
+                ", fecha='" + date + '\'' +
+                '}';
     }
 }
