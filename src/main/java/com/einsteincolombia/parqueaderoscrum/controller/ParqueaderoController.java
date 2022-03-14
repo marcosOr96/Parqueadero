@@ -25,7 +25,7 @@ public class ParqueaderoController implements Initializable {
     @FXML private TextField textCantCarros;
     @FXML private ComboBox<String> comboBoxTipo;
     @FXML private Button buttonAgregar;
-    @FXML private Button buttonLimpiar;
+    @FXML private Button buttonClean;
     @FXML private Button buttonReiniciar;
     @FXML private Button buttonTotalizar;
     @FXML private Label labelResultado;
@@ -113,7 +113,7 @@ public class ParqueaderoController implements Initializable {
         }
     }
 
-    public void limpiar(ActionEvent event) {
+    public void clean(ActionEvent event) {
         textPlaca.setText("");
         textModelo.setText("");
         textFecha.setText("");
