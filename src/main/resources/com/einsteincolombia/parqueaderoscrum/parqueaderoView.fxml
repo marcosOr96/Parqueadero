@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -8,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.einsteincolombia.parqueaderoscrum.controller.ParqueaderoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.einsteincolombia.parqueaderoscrum.controller.ParqueaderoController">
    <children>
       <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c9c3c3;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -59,7 +63,7 @@
             <TextField fx:id="textCantCarros" editable="false" layoutX="426.0" layoutY="148.0" />
             <ComboBox fx:id="comboBoxTipo" layoutX="150.0" layoutY="201.0" prefWidth="150.0" />
             <Button fx:id="buttonAgregar" layoutX="151.0" layoutY="257.0" mnemonicParsing="false" onAction="#addVehicle" prefHeight="35.0" prefWidth="72.0" text="Agregar" />
-            <Button fx:id="buttonLimpiar" layoutX="225.0" layoutY="257.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="72.0" text="Limpiar" />
+            <Button fx:id="buttonClean" layoutX="225.0" layoutY="257.0" mnemonicParsing="false" onAction="#clean" prefHeight="35.0" prefWidth="72.0" text="Clean" />
             <Button fx:id="buttonReiniciar" layoutX="383.0" layoutY="193.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="90.0" text="Reiniciar" />
             <Button fx:id="buttonTotalizar" layoutX="482.0" layoutY="192.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="90.0" text="Totalizar" />
             <Label fx:id="labelResultado" layoutX="354.0" layoutY="292.0" text="\$ xx">
