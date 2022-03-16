@@ -30,7 +30,7 @@ public class ParqueaderoController implements Initializable {
     @FXML private Button buttonClean;
     @FXML private Button buttonReiniciar;
     @FXML private Button buttonTotalizar;
-    @FXML private Label labelResultado;
+    @FXML private TextArea textAreaReport;
 
     ObservableList<String> comboTipoContent =
             FXCollections.observableArrayList(
@@ -145,12 +145,16 @@ public class ParqueaderoController implements Initializable {
             textModelo.setText("");
             comboBoxTipo.setValue(null);
             textFecha.setText(currentDate.toString());
+            textAreaReport.setText("");
         } else {
             // ... user chose CANCEL or closed the dialog
         }
+    }
 
-        parking.resetRegistration();
-
+    //metodo totalizar registros ---------------------------------------------------------------------------------------
+    public void onTotalButton (ActionEvent event){
+        String report = parking.totalRegistration();
+        textAreaReport.setText(report);
     }
 
 

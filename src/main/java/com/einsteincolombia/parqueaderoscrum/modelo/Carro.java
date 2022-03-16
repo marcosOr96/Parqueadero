@@ -43,6 +43,10 @@ public class Carro {
         this.date = date;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
     @Override
     public String toString() {
         return "Carro{" +

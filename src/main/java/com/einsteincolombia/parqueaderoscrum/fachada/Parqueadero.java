@@ -108,6 +108,22 @@ public class Parqueadero {
         car.clear();
     }
 
+    public String totalRegistration(){
+        String report;
+        double totalMotorbikes=0;
+        double totalCars=0;
+        for (Moto moto : motorbike) {
+            totalMotorbikes = totalMotorbikes + moto.getPrice();
+        }
+        for(Carro carro: car){
+            totalCars=totalCars+carro.getPrice();
+        }
+        report="Total Carros: "+car.size()+" Recaudo: "+totalCars+"\n" +
+                "Total Motos: "+motorbike.size()+" Recaudo: "+totalMotorbikes+"\n"+
+                "Total Vehículos: "+(car.size()+motorbike.size())+ " Total Recaudo: "+(totalCars+totalMotorbikes);
+        return report;
+    }
+
     public ArrayList getCar() {
         return car;
     }
