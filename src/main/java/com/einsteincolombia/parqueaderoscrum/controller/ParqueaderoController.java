@@ -1,6 +1,7 @@
 package com.einsteincolombia.parqueaderoscrum.controller;
 
 import com.einsteincolombia.parqueaderoscrum.fachada.Parqueadero;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,6 +14,7 @@ import javafx.scene.input.KeyEvent;
 
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ParqueaderoController implements Initializable {
@@ -113,12 +115,44 @@ public class ParqueaderoController implements Initializable {
         }
     }
 
+    //Metodo para borrar texto de la pantalla en los campos de ingreso datos -------------------------------------------
     public void clean(ActionEvent event) {
         textPlaca.setText("");
         textModelo.setText("");
-        textFecha.setText("");
+        textFecha.setText(currentDate.toString());
         comboBoxTipo.setValue(null);
     }
+
+    //Metodo para eliminar registros con el boton limpiar---------------------------------------------------------------
+    public void onResetButton (ActionEvent event){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle(" ***** ELIMINAR REGISTRO *****");
+        alert.setHeaderText(null);
+        alert.setContentText("Desea eliminar los Registros del día?");
+
+        ButtonType botonSi = new ButtonType("SI");
+        ButtonType botonNo = new ButtonType("NO", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+        alert.getButtonTypes().setAll(botonSi, botonNo);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == botonSi){
+            // ... user chose OK
+            parking.resetRegistration();
+            textCantCarros.setText(String.valueOf(parking.getCar().size()));
+            textCantMotos.setText(String.valueOf(parking.getMotorbike().size()));
+            textPlaca.setText("");
+            textModelo.setText("");
+            comboBoxTipo.setValue(null);
+            textFecha.setText(currentDate.toString());
+        } else {
+            // ... user chose CANCEL or closed the dialog
+        }
+
+        parking.resetRegistration();
+
+    }
+
 
     //metodo para ingresar solo numero en los textfield ----------------------------------------------------------------
     EventHandler<KeyEvent> handlerNumbers = new EventHandler<KeyEvent>() {

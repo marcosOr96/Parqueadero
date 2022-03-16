@@ -102,6 +102,12 @@ public class Parqueadero {
         return price;
     }
 
+    //metodo pra eliminar registros de los arraylist
+    public void resetRegistration(){
+        motorbike.clear();
+        car.clear();
+    }
+
     public ArrayList getCar() {
         return car;
     }
